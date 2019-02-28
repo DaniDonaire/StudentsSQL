@@ -17,7 +17,7 @@ namespace StudentSQL.Presentation.Console
 
             sr.Insert();
             sr.SelectAll();
-            st = sr.Select(1);
+            sr.Select(1);
 
             System.Console.WriteLine(st.ToString());
             System.Console.ReadLine();

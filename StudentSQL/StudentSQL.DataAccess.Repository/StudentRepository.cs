@@ -19,29 +19,30 @@ namespace StudentSQL.DataAccess.Repository
         SQLRepository SQLM = new SQLRepository();
 
 
-        public List<Student> SelectAll()
+        public void SelectAll()
         {
             string query = "SELECT * FROM Student;";
-            List<Student> listStudents = new List<Student>();
-            listStudents = SQLM.Select(connectionString, query);
-
-            return listStudents;
+            //List<Student> listStudents = new List<Student>();
+            SQLM.Select(connectionString, query);
+        
         }
 
          
-        public Student Select(int idStudent)
+        public void Select(int idStudent)
         {
             string query = String.Concat("SELECT * FROM Student WHERE StudentId=",idStudent.ToString());
             List<Student> listStudents = new List<Student>();
-            listStudents = SQLM.Select(connectionString, query);
+            //SQLM.Select(connectionString, query);
 
-            return listStudents.First();
         }
 
         public void Insert()
         {
-            Student st = new Student(2, "Dani2", "test", "324q4");
-            SQLM.Insert(connectionString, st);
+            Student st = new Student(4, "Dani2", "test", "324q4");
+
+            string query = String.Concat("INSERT INTO Student  VALUES(",st.StudentId,", '",st.Name,"', '",st.Surname,"', '",st.Dni,"');");
+
+            SQLM.Insert(connectionString, query);
 
         }
 

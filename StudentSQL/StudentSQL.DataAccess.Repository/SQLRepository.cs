@@ -15,7 +15,7 @@ namespace StudentSQL.DataAccess.Repository
         ILogger vlog = new Log4Net();
 
 
-        public List<Student> Select(string connectionString, string query)
+        public void Select(string connectionString, string query)
         {
             List<Student> studentList = new List<Student>();
 
@@ -67,31 +67,25 @@ namespace StudentSQL.DataAccess.Repository
                     throw;
                 }
             }
-            return studentList;
+
         }
 
-        public Student Insert(string connectionString, Student student)
+        public void Insert(string connectionString, string query)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 SqlCommand cmd = new SqlCommand();
+
                 cmd.Connection = connection;
-                cmd.CommandText = "INSERT INTO Student  VALUES(@param1,@param2,@param3,@param4)";
-
-                cmd.Parameters.AddWithValue("@param1", student.StudentId);
-                cmd.Parameters.AddWithValue("@param2", student.Name);
-                cmd.Parameters.AddWithValue("@param3", student.Surname);
-                cmd.Parameters.AddWithValue("@param4", student.Dni);
-
+                cmd.CommandText = query;
                 cmd.ExecuteNonQuery();
 
                 connection.Close();
 
             }
-
-            return student;
+            
         }
         public void Update()
         {
