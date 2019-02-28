@@ -12,9 +12,10 @@ namespace StudentSQL.Presentation.Console
         public static void Main(string[] args)
         {
             StudentRepository sr = new StudentRepository();
-            sr.Test();
+           
 
-
+            sr.SelectAll();
+            sr.Select(1);
             System.Console.ReadLine();
 
         }
