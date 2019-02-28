@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentSQL.Common.Library.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,13 +15,16 @@ namespace StudentSQL.DataAccess.Repository
         ILogger vlog = new Log4Net();
 
 
-        public void Select(string connectionString, string query)
+        public List<Student> Select(string connectionString, string query)
         {
+            List<Student> studentList = new List<Student>();
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(query, connection);
+
                     connection.Open();
 
                     SqlDataReader reader = command.ExecuteReader();
@@ -29,8 +33,9 @@ namespace StudentSQL.DataAccess.Repository
                     {
                         while (reader.Read())
                         {
-                            Console.WriteLine("{0}\t{1}\t{2}\t{3}", reader.GetInt32(0),
-                                reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                            Student st = new Student(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+
+                            studentList.Add(st);
                         }
                     }
                     else
@@ -46,6 +51,7 @@ namespace StudentSQL.DataAccess.Repository
                     Console.WriteLine("Fail");
                 }
             }
+            return studentList;
         }
 
         public void Insert()
@@ -60,5 +66,6 @@ namespace StudentSQL.DataAccess.Repository
         {
 
         }
+        
     }
 }

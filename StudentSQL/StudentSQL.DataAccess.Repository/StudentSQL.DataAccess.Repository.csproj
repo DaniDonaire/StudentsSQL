@@ -55,5 +55,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentSQL.Common.Library\StudentSQL.Common.Library.csproj">
+      <Project>{054d3e1f-5eae-44f5-b398-540ea3245547}</Project>
+      <Name>StudentSQL.Common.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

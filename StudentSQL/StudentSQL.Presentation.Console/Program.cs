@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentSQL.Common.Library.Models;
 using StudentSQL.DataAccess.Repository;
 
 namespace StudentSQL.Presentation.Console
@@ -12,10 +13,12 @@ namespace StudentSQL.Presentation.Console
         public static void Main(string[] args)
         {
             StudentRepository sr = new StudentRepository();
-           
+            Student st = new Student();
 
             sr.SelectAll();
-            sr.Select(1);
+            st = sr.Select(1);
+
+            System.Console.WriteLine(st.ToString());
             System.Console.ReadLine();
 
         }

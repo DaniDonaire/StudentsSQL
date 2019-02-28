@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentSQL.Common.Library.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,19 +16,25 @@ namespace StudentSQL.DataAccess.Repository
             "Initial Catalog=Vueling;" +
             "Integrated Security=SSPI;";
         
-        public void SelectAll()
+        public List<Student> SelectAll()
         {
             string query = "SELECT * FROM Student;";
             SQLRepository SQLM = new SQLRepository();
-            SQLM.Select(connectionString, query);
+            List<Student> listStudents = new List<Student>();
+            listStudents = SQLM.Select(connectionString, query);
+
+            return listStudents;
         }
 
          
-        public void Select(int idStudent)
+        public Student Select(int idStudent)
         {
             string query = String.Concat("SELECT * FROM Student WHERE StudentId=",idStudent.ToString());
             SQLRepository SQLM = new SQLRepository();
-            SQLM.Select(connectionString, query);
+            List<Student> listStudents = new List<Student>();
+            listStudents = SQLM.Select(connectionString, query);
+
+            return listStudents.First();
         }
 
 
