@@ -52,5 +52,15 @@
   <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentSQL.Common.Library\StudentSQL.Common.Library.csproj">
+      <Project>{054d3e1f-5eae-44f5-b398-540ea3245547}</Project>
+      <Name>StudentSQL.Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentSQL.DataAccess.Repository\StudentSQL.DataAccess.Repository.csproj">
+      <Project>{1462e1a8-a085-491b-898b-d18b9b8b0d78}</Project>
+      <Name>StudentSQL.DataAccess.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

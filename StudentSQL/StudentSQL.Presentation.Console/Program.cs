@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentSQL.DataAccess.Repository;
 
 namespace StudentSQL.Presentation.Console
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            StudentRepository sr = new StudentRepository();
+            sr.Test();
+
+
+            System.Console.ReadLine();
+
         }
     }
 }
