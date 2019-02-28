@@ -15,6 +15,7 @@ namespace StudentSQL.Presentation.Console
             StudentRepository sr = new StudentRepository();
             Student st = new Student();
 
+            sr.Insert();
             sr.SelectAll();
             st = sr.Select(1);
 
