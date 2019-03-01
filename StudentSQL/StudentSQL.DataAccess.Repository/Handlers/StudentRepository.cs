@@ -9,7 +9,6 @@ using VuelingLog;
 
 namespace StudentSQL.DataAccess.Repository
 {
-
     public class StudentRepository
     {
         string connectionString = "Data Source = localhost;" +

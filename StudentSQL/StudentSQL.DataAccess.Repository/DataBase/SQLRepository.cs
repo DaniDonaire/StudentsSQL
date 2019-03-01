@@ -23,6 +23,7 @@ namespace StudentSQL.DataAccess.Repository
             {
                 try
                 {
+
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
