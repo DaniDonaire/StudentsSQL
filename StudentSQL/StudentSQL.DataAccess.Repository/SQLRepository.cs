@@ -38,7 +38,6 @@ namespace StudentSQL.DataAccess.Repository
                     {
                         Console.WriteLine("No rows found.");
                     }
-                    reader.Close();
 
 
                 }
@@ -81,8 +80,7 @@ namespace StudentSQL.DataAccess.Repository
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.ExecuteNonQuery();
-
-                connection.Close();
+                
 
             }
             

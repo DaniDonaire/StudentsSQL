@@ -38,7 +38,7 @@ namespace StudentSQL.DataAccess.Repository
 
         public void Insert()
         {
-            Student st = new Student(4, "Dani2", "test", "324q4");
+            Student st = new Student(5, "Dani2", "test", "324q4");
 
             string query = String.Concat("INSERT INTO Student  VALUES(",st.StudentId,", '",st.Name,"', '",st.Surname,"', '",st.Dni,"');");
 
