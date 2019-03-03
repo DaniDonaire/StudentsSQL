@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using StudentSQL.Common.Library.Models;
 using StudentSQL.DataAccess.Repository;
+using StudentSQL.DataAccess.Repository.Handlers;
+using StudentSQL.Presentation.Console.Utils;
 
 namespace StudentSQL.Presentation.Console
 {
@@ -12,14 +14,15 @@ namespace StudentSQL.Presentation.Console
     {
         public static void Main(string[] args)
         {
-            StudentRepository sr = new StudentRepository();
-            Student st = new Student();
 
-            sr.Insert();
-            sr.SelectAll();
-            sr.Select(1);
 
-            System.Console.WriteLine(st.ToString());
+
+            Menu m = new Menu();
+
+            m.InsertDireccionPersona();
+            
+
+
             System.Console.ReadLine();
 
         }
