@@ -11,9 +11,7 @@ namespace StudentSQL.DataAccess.Repository
 {
     public class StudentRepository
     {
-        string connectionString = "Data Source = localhost;" +
-            "Initial Catalog=Vueling;" +
-            "Integrated Security=SSPI;";
+        string connectionString = "Data Source = localhost; Initial Catalog=Vueling; Integrated Security=SSPI;";
 
         SQLRepository SQLM = new SQLRepository();
 

@@ -1,6 +1,7 @@
 ﻿using StudentSQL.DataAccess.Repository.DataBase.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace StudentSQL.DataAccess.Repository.DataBase
 {
     public class SQLDireccionRepository : IFullCrud
     {
+        int done = 0;
 
         public void Select()
         {
@@ -20,11 +22,34 @@ namespace StudentSQL.DataAccess.Repository.DataBase
             throw new NotImplementedException();
         }
 
-        public void Insert()
+
+        public bool Insert(string connectionString, string query)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = connection;
+                cmd.CommandText = query;
+
+                done = cmd.ExecuteNonQuery();
+
+                if (done < 1)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+
+            }
+
         }
-        
+
         public void Update()
         {
             throw new NotImplementedException();
