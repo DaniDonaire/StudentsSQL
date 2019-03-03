@@ -11,7 +11,7 @@ namespace StudentSQL.Common.Library.Models
         public int PersonaId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int Dni { get; set; }
+        public string Dni { get; set; }
         public int DireccionId { get; set; }
     }
 }
