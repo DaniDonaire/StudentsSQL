@@ -1,4 +1,5 @@
-﻿using StudentSQL.DataAccess.Repository.DataBase;
+﻿using StudentSQL.Common.Library.Models;
+using StudentSQL.DataAccess.Repository.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +18,12 @@ namespace StudentSQL.DataAccess.Repository.Handlers
         DireccionRepository dr = new DireccionRepository();
 
 
-        public bool Insert(string query)
+        public bool Insert(Persona per)
         {
             bool done;
 
-            done = dr.Insert(query);
+            return SQLpr.Insert(connectionString, per);
 
-            if (done)
-            {
-                return SQLpr.Insert(connectionString, query);
-
-            }
-            else
-            {
-                return false;
-            }
             
             
         }

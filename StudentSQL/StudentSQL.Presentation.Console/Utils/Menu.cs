@@ -21,13 +21,22 @@ namespace StudentSQL.Presentation.Console.Utils
             
             bool done = false;
             
-            string queryDireccion = "";
-            string queryPersona = "";
+
+            Direccion dir = new Direccion();
+            dir.Calle = "calle";
+            dir.Poblacio = "Vila";
+            dir.Provincia = "BCN";
             //Deberia leer lo que dice el cliente para enviar la query
-            done = dr.Insert(queryDireccion);
+            done = dr.Insert(dir);
             if (done)
             {
-                pr.Insert(queryPersona);
+                Persona per = new Persona();
+                per.Name = "Dani";
+                per.Surname = " G";
+                per.Dni = "55";
+                per.DireccionId = dir.DireccionId;
+
+                pr.Insert(per);
             }
 
         }

@@ -1,4 +1,5 @@
-﻿using StudentSQL.DataAccess.Repository.DataBase.Interfaces;
+﻿using StudentSQL.Common.Library.Models;
+using StudentSQL.DataAccess.Repository.DataBase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,7 +24,7 @@ namespace StudentSQL.DataAccess.Repository.DataBase
             throw new NotImplementedException();
         }
 
-        public bool Insert(string connectionString, string query)
+        public bool Insert(string connectionString, Persona per)
         {
 
            
@@ -34,8 +35,16 @@ namespace StudentSQL.DataAccess.Repository.DataBase
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connection;
-                cmd.CommandText = query;
+                cmd.CommandText = "INSERT INTO Persona (Name, Surname, Dni, IdDireccion) VALUES( @name, @surname, @dni, @iddir)";
+
+                cmd.Parameters.Add("@name", per.Name);
+                cmd.Parameters.Add("@surname", per.Surname);
+                cmd.Parameters.Add("@dni", per.Dni);
+                cmd.Parameters.Add("@iddir", per.DireccionId);
+
                 cmd.ExecuteNonQuery();
+
+
                 if (done < 1)
                 {
                     return false;

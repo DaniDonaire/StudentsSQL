@@ -1,4 +1,5 @@
-﻿using StudentSQL.DataAccess.Repository.DataBase;
+﻿using StudentSQL.Common.Library.Models;
+using StudentSQL.DataAccess.Repository.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,9 @@ namespace StudentSQL.DataAccess.Repository.Handlers
         SQLDireccionRepository SQLdr = new SQLDireccionRepository();
         string connectionString = "Data Source = localhost; Initial Catalog=Vueling; Integrated Security=SSPI;";
 
-        public bool Insert(string query)
+        public bool Insert(Direccion direccion)
         {
-            return SQLdr.Insert(connectionString, query);
-
-
+            return SQLdr.Insert(connectionString, direccion);
         }
 
 
