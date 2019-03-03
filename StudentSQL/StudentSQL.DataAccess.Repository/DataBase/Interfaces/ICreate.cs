@@ -8,6 +8,6 @@ namespace StudentSQL.DataAccess.Repository.DataBase.Interfaces
 {
     public interface ICreate
     {
-        void Insert();
+        bool Insert(string connection, string query);
     }
 }
