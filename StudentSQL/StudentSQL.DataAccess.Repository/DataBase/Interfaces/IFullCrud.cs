@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentSQL.DataAccess.Repository.DataBase.Interfaces
 {
-    public interface IFullCrud : IRead , IUpdate , IDelete
+    public interface IFullCrud : IUpdate , IDelete
     {
 
 

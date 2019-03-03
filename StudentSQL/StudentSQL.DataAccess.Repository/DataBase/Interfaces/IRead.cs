@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StudentSQL.DataAccess.Repository.DataBase.Interfaces
 {
-    public interface IRead
+    public interface IRead<T>
     {
-        void Select();
+        T Select(string connection, int id);
         void SelectAll();
     }
 }
