@@ -21,11 +21,13 @@ namespace StudentSQL.DataAccess.Repository.Handlers
         public bool Insert(Persona per)
         {
             bool done;
-
             return SQLpr.Insert(connectionString, per);
+        }
 
+        public Persona Select(int id)
+        {
             
-            
+            return SQLpr.Select(connectionString, id);
         }
     }
 }

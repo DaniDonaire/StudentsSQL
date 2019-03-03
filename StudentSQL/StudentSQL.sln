@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSQL.DataAccess.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSQL.Presentation.Console", "StudentSQL.Presentation.Console\StudentSQL.Presentation.Console.csproj", "{B6AFB3D5-F5EA-461A-ABA9-3DCD62FE4FEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSQL.DataAccess.RepositoryTests", "StudentSQL.DataAccess.RepositoryTests\StudentSQL.DataAccess.RepositoryTests.csproj", "{3AA63F2F-4411-4077-A16B-33BE74E55424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B6AFB3D5-F5EA-461A-ABA9-3DCD62FE4FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6AFB3D5-F5EA-461A-ABA9-3DCD62FE4FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6AFB3D5-F5EA-461A-ABA9-3DCD62FE4FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA63F2F-4411-4077-A16B-33BE74E55424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA63F2F-4411-4077-A16B-33BE74E55424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA63F2F-4411-4077-A16B-33BE74E55424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA63F2F-4411-4077-A16B-33BE74E55424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{054D3E1F-5EAE-44F5-B398-540EA3245547} = {B3574187-85F2-431D-B2A2-4A9F1A2E8CA8}
 		{1462E1A8-A085-491B-898B-D18B9B8B0D78} = {05030D6D-DD4A-4322-B703-303C259D3CA1}
 		{B6AFB3D5-F5EA-461A-ABA9-3DCD62FE4FEE} = {D8ACC805-65FF-4D44-9FE0-8698F0C3B787}
+		{3AA63F2F-4411-4077-A16B-33BE74E55424} = {05030D6D-DD4A-4322-B703-303C259D3CA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D20086C-DA8E-4988-9FAE-B2B6B80AE0E3}

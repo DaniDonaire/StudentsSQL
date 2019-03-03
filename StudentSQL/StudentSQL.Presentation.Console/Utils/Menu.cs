@@ -20,9 +20,11 @@ namespace StudentSQL.Presentation.Console.Utils
         {
             
             bool done = false;
-            
 
             Direccion dir = new Direccion();
+            Persona per = new Persona();
+            Persona persona = new Persona();
+
             dir.Calle = "calle";
             dir.Poblacio = "Vila";
             dir.Provincia = "BCN";
@@ -30,7 +32,6 @@ namespace StudentSQL.Presentation.Console.Utils
             done = dr.Insert(dir);
             if (done)
             {
-                Persona per = new Persona();
                 per.Name = "Dani";
                 per.Surname = " G";
                 per.Dni = "55";
@@ -38,6 +39,8 @@ namespace StudentSQL.Presentation.Console.Utils
 
                 pr.Insert(per);
             }
+
+            persona = pr.Select(per.PersonaId);
 
         }
 

@@ -13,7 +13,7 @@ namespace StudentSQL.DataAccess.Repository.DataBase
     {
         int done = 0;
 
-        public void Select()
+        public void Select(string connection, int id)
         {
             throw new NotImplementedException();
         }

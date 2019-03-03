@@ -9,14 +9,44 @@ using System.Threading.Tasks;
 
 namespace StudentSQL.DataAccess.Repository.DataBase
 {
-    public class SQLPersonaRepository : IFullCrud
+    public class SQLPersonaRepository : IFullCrud, IRead<Persona>, ICreate<Persona>
     {
         int done = 0;
 
 
-        public void Select()
+        public Persona Select(string connectionString, int id)
         {
-            throw new NotImplementedException();
+            Persona persona = new Persona();
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM Persona WHERE IdPersona=@id;";
+                cmd.Parameters.Add("@id", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        persona.PersonaId = reader.GetInt32(0);
+                        persona.Name = reader.GetString(1);
+                        persona.Surname = reader.GetString(2);
+                        persona.Dni = reader.GetString(3);
+                        persona.DireccionId = reader.GetInt32(4);
+                        
+                    }
+                }
+
+
+                
+                return persona;
+
+            }
         }
 
         public void SelectAll()
@@ -35,24 +65,19 @@ namespace StudentSQL.DataAccess.Repository.DataBase
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connection;
-                cmd.CommandText = "INSERT INTO Persona (Name, Surname, Dni, IdDireccion) VALUES( @name, @surname, @dni, @iddir)";
+                cmd.CommandText = "INSERT INTO Persona (Name, Surname, Dni, IdDireccion) VALUES( @name, @surname, @dni, @iddir);SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                 cmd.Parameters.Add("@name", per.Name);
                 cmd.Parameters.Add("@surname", per.Surname);
                 cmd.Parameters.Add("@dni", per.Dni);
                 cmd.Parameters.Add("@iddir", per.DireccionId);
 
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
 
+                per.PersonaId = (int)cmd.ExecuteScalar();
 
-                if (done < 1)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;
+                
 
             }
 
