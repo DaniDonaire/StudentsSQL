@@ -13,5 +13,15 @@ namespace StudentSQL.Common.Library.Models
         public string Provincia { get; set; }
         public string Poblacio { get; set; }
        
+
+
+        public Direccion(string carre, string provincia, string poblacio)
+        {
+            Calle = carre;
+            Provincia = provincia;
+            Poblacio = poblacio;
+        }
+
+        public Direccion() { }
     }
 }

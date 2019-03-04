@@ -3,43 +3,49 @@ using StudentSQL.DataAccess.Repository;
 using StudentSQL.DataAccess.Repository.Handlers;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
+using VuelingLog;
 
 namespace StudentSQL.Presentation.Console.Utils
 {
+
     public class Menu
     {
+        ILogger vlog = new Log4Net();
+
+
         StudentRepository sr = new StudentRepository();
         DireccionRepository dr = new DireccionRepository();
         PersonaRepository pr = new PersonaRepository();
         Student st = new Student();
-
+        Persona per;
         public void InsertDireccionPersona()
         {
-            
-            bool done = false;
 
-            Direccion dir = new Direccion();
-            Persona per = new Persona();
-            Persona persona = new Persona();
-
-            dir.Calle = "calle";
-            dir.Poblacio = "Vila";
-            dir.Provincia = "BCN";
-            //Deberia leer lo que dice el cliente para enviar la query
-            done = dr.Insert(dir);
-            if (done)
+            try
             {
-                per.Name = "Dani";
-                per.Surname = " G";
-                per.Dni = "55";
-                per.DireccionId = dir.DireccionId;
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    Direccion dir = new Direccion("calle", "Vila", "BCN");
 
-                pr.Insert(per);
+                    dr.Insert(dir);
+
+                    per = new Persona("Dani", "Go", "555X", dir.DireccionId);
+
+                    pr.Insert(per);
+                    scope.Complete();
+                }
+            }catch (Exception e)
+            {
+                vlog.Info(e.Message);
+                throw;
             }
 
+            Persona persona = new Persona();
             persona = pr.Select(per.PersonaId);
 
         }

@@ -13,5 +13,16 @@ namespace StudentSQL.Common.Library.Models
         public string Surname { get; set; }
         public string Dni { get; set; }
         public int DireccionId { get; set; }
+
+
+        public Persona(string n, string s, string dni, int idd)
+        {
+            Name = n;
+            Surname = s;
+            Dni = dni;
+            DireccionId = idd;
+        }
+
+        public Persona() { }
     }
 }
