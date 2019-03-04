@@ -17,6 +17,7 @@ namespace StudentSQL.DataAccess.Repository.Handlers.Tests
 
         Direccion dir = new Direccion();
         Persona per = new Persona();
+        Persona person = new Persona();
 
         [TestMethod()]
         public void InsertTest()
@@ -26,10 +27,9 @@ namespace StudentSQL.DataAccess.Repository.Handlers.Tests
             per.Name = "Dani"; per.Surname = " G"; per.Dni = "55"; per.DireccionId = dir.DireccionId;
             pr.Insert(per);
 
-            Persona person = new Persona();
 
             person = pr.Select(per.PersonaId);
-            Assert.AreEqual(per, person);
+            Assert.AreEqual(per.PersonaId, person.PersonaId);
         }
     }
 }
