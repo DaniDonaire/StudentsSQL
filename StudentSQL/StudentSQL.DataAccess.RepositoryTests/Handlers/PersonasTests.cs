@@ -31,5 +31,14 @@ namespace StudentSQL.DataAccess.Repository.Handlers.Tests
             person = pr.Select(per.PersonaId);
             Assert.AreEqual(per.PersonaId, person.PersonaId);
         }
+
+        [TestMethod()]
+        public void SelectTest()
+        {
+            per = pr.Select(1);
+            person = pr.Select(1);
+
+            Assert.AreEqual(per.PersonaId, person.PersonaId);
+        }
     }
 }
